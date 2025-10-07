@@ -30,7 +30,7 @@ section{
 
 }
 
-div{
+p{
 overflow: auto;
   white-space: nowrap;
   padding: 10px;
@@ -53,18 +53,14 @@ label{
     font-size: 130%;
 }
 
-div h2{
-    /* float: left;
-    clear:both; */
-    grid-row-start: 1;
-    transform: translate(-10%);
+
+.holidayname {
+    color: red;
+    font-size: 2em;
+    text-align: center;
 }
 
-p{
-    background-color: #333;
-}
-
-div img {
+p img {
     /* display: inline-flex;
     flex-direction: row; */
     padding: 10px;
@@ -97,9 +93,14 @@ div img {
         margin-top: 3%;
     }
 
-    div{
+    p{
         color: red;
         font-size: 1.5em;
+    }
+
+    label{
+        text-align: center;
+        margin-bottom: 2%;
     }
 
 }
