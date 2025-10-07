@@ -7,16 +7,18 @@ document.querySelector('button').addEventListener('click', getHolidays)
 let clickCount = 0;
 const reloadSearch = document.querySelector('button');
 
-// reloadSearch.addEventListener ('click', () => {
-//     clickCount++;
+reloadSearch.addEventListener ('click', () => {
+    clickCount++;
 
 
-// if (clickCount === 2) {
-//     window.location.reload();
-//     clickCount = 0;
-// }
+if (clickCount === 2) {
+    const directions = document.getElementById("directions")
+    directions.innerHTML = 'Please refresh the page before trying again';
+    // window.location.reload();
+    clickCount = 0;
+}
 
-// });
+});
 
 // https://holidayapi.com/v1/holidays?country=US&year=2024&month=12&pretty=true&key=
 // THIS IS WHAT WORKS: https://holidayapi.com/v1/holidays?key=8280133f-761d-4c81-b63e-8e115fbe7aa0&country=US&year=2024&month=10&day=15
@@ -35,14 +37,20 @@ function getPhotos (holiday) {
     const query = document.querySelector('div').innerText + ' ' + document.querySelector('option:checked').textContent.split(' ')[0] 
     fetch(`https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=${clientID}&count=3`)
     .then(res => res.json())
-        .then(data => {
-            console.log(data)
-    document.querySelector('img').src = data.results[0].urls.regular
-    document.querySelector('img').src = data.results[1].urls.regular 
-    document.querySelector('img').src = data.results[2].urls.regular  
+    .then(data => {
+            data.results.forEach (result => {
+                const img = document.createElement('img')
+                img.src = result.urls.regular
+                document.querySelector('div').appendChild(img)
+                // document.createElement('img').src += data.results[i].urls.regular
+                // document.querySelector('div').appendChild('img')
+    // document.querySelector('img').src = data.results[1].urls.regular + data.results[1].urls.regular + data.results[2].urls.regular   
+    // document.querySelector('img').src = data.results[1].urls.regular 
+    // document.querySelector('img').src = data.results[2].urls.regular  
     })
-    
-    
+    // Sarah Yu helped me debug the function above.
+
+})
     }
 
 function getHolidays() {
@@ -65,7 +73,7 @@ function getHolidays() {
     const proxxyURL = 'https://api.allorigins.win/raw?url='; + encodeURIComponent(url) 
     // Shawn Holmes showed me how to use the encodeURIcomponent
 
-    document.querySelector('p').innerHTML = ''
+    // document.querySelector('p').innerHTML = ''
 
     fetch(`https://holidayapi.com/v1/holidays?key=${myKey}&country=${countryValue}&year=${yearValue}&month=${monthValue}&day=${dayValue}`)
     // Justin Joshi helped me fix my fetch from the original structure I had in const url above. Justin also helped me set up the forEach function below.
@@ -73,7 +81,7 @@ function getHolidays() {
         .then(data => {
             console.log(data.holidays)
             data.holidays.forEach((x, i) => {
-                document.querySelector('p').innerHTML += `<div>${data.holidays[i].name}<img></div>`
+                document.querySelector('h2').innerHTML += `<div>${data.holidays[i].name}</div>`
                 getPhotos (data.holidays[i])
             }) 
 

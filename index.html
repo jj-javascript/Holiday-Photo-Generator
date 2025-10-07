@@ -3,12 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="description" content="An App that will show you photos for holidays all around the world">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="keywords" content="one, two, three">
         <title>Holday Photo Generator</title>
 
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <h1>Holiday Photo Generator</h1>
+        <h2 class="directions" id="directions"><span><strong>Directions</strong></span>: Select a Country and Day to Search For Holidays</h2>
+    <section>
         <label for="country">Choose a Country:</label>
         <select name="country" size="1" id="country">
             <option value="AF">Afghanistan 🇦🇫</option>
@@ -211,6 +215,8 @@
         </select>
         <input type="date" value="2024-01-01" min="2024-01-01" max="2024-12-31" id="monyear">
         <button>Submit</button>
+    </section>
+        <h2></h2>
         <p></p>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
