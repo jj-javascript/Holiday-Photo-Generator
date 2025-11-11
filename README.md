@@ -1,6 +1,6 @@
-# Compilr
+# Holiday Photo Generator
 
-A full-stack Node.js and Express web application that allows users to compile their content they would like to see later into one sleek social feed.
+An application compiling APIs to show users photos of holidays around the world.
 
 ## [Live Demo](https://jj-javascript.github.io/Holiday-Photo-Generator/)
 
