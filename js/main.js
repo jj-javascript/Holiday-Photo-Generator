@@ -15,7 +15,7 @@ function getAllDates () {
     const prettyParam = '&pretty='
     const pretty = true
     const yearParam = `&year=`
-    const yearValue = "2024"
+    const yearValue = "2025"
 
     fetch(`https://holidayapi.com/v1/holidays?key=${myKey}&country=${countryValue}&year=${yearValue}`)
         .then(res => res.json())
@@ -92,7 +92,7 @@ function getHolidays() {
     const prettyParam = '&pretty='
     const pretty = true
     const yearParam = `&year=`
-    const yearValue = "2024"
+    const yearValue = "2025"
     const monthParam = `&month=`
     const monthValue = String(holyMonth).substring(5, 7)
     const dayParam = `&day=`
